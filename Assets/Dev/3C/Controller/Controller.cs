@@ -31,13 +31,17 @@ public class Controller : MonoBehaviour {
         }
 	}
 
-    private bool CanMove() // TODO Check if you can move (not moving)
+    private bool CanMove() // TODO Check if you can move (not moving and something else?)
     {
         return !moving;
     }
 
+    /// <summary>
+    /// Check if the input is asking for a movement up or down
+    /// </summary>
     private void Move()
     {
+        Debug.Log("Move");
         if (Input.touchCount > 0)
         {
             foreach (Touch touch in Input.touches)
@@ -51,9 +55,10 @@ public class Controller : MonoBehaviour {
 
                     case TouchPhase.Ended:
                         float gestureDist = (touch.position - fingerStartPos).magnitude;
-
+                        Debug.Log("====Avant entrée dans gesture");
                         if (gestureDist < minSwipeDist)
                         {
+                            Debug.Log("========Entrée dans gesture");
                             Vector2 direction = touch.position - fingerStartPos;
                             Vector2 swipeType = Vector2.zero;
 
