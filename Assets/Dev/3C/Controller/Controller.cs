@@ -6,24 +6,34 @@ public class Controller : MonoBehaviour {
     private Vector2 fingerStartPos = Vector2.zero;
     private float minSwipeDist;
     private bool moving;
+    private float timeToMove;
 
 	// Use this for initialization
 	void Start () {
         minSwipeDist = 50.0f;
         moving = false;
+        timeToMove = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (moving)
+        {
+            timeToMove -= Time.deltaTime;
+            if (timeToMove <= 0)
+                moving = false;
+        }
+
         if (CanMove())
         {
             Move();
         }
 	}
 
-    private bool CanMove() // TODO Check if you can move (not in transition)
+    private bool CanMove() // TODO Check if you can move (not moving)
     {
-        return true;
+        return !moving;
     }
 
     private void Move()
@@ -57,11 +67,15 @@ public class Controller : MonoBehaviour {
                                     if (swipeType.y > 0.0f)
                                     {
                                         // MOVE UP TODO call manager's method moveUp
+                                        // TODO  timeToMove = X
+                                        //TODO moving = true
                                         Debug.Log("MOVE UP");
                                     }
                                     else
                                     {
                                         // MOVE DOWN TODO call manager's method movedown
+                                        // TODO  timeToMove = X
+                                        //TODO moving = true
                                         Debug.Log("MOVE DOWN");
                                     }
                                 }
