@@ -16,6 +16,7 @@ public class PickupAudioButtonSwap : Pickup
 			if (swapper != null)
 			{
 				swapper.Swap();
+				GameObject.Destroy(gameObject);
 			}
         }
 
