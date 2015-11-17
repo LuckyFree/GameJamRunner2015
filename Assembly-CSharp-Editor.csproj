@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Reporter\Editor\ReporterEditor.cs" />
+     <None Include="Assets\Dev\Databases\RhythmosDatabase.xml" />
      <None Include="Assets\StreamingAssets\build_info.txt" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
@@ -88,6 +89,12 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="RhythmosEditor">
+ <HintPath>/Users/Kylyu/Documents/GameJamRunner2015/Assets/RhythmosEngine/RhythmosEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="RhythmosEngine">
+ <HintPath>/Users/Kylyu/Documents/GameJamRunner2015/Assets/RhythmosEngine/RhythmosEngine.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
