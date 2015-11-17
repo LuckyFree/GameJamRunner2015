@@ -249,11 +249,11 @@ Bell
 Bell
 59.999
 Bell
-00.428
+60.428
 Bell
-00.857
+60.857
 Bell
-01.285
+61.285
 Bell + Kick
 61.714
 Snare + Bell
