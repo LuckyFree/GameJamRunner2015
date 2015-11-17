@@ -9,6 +9,7 @@ public class Controller : MonoBehaviour {
     private GameObject player;
     private CharacterManager characterManager;
 
+    public float maximumHeightForPlayerRunner;
     public bool invertedControls;
 
 	// Use this for initialization
@@ -59,12 +60,13 @@ public class Controller : MonoBehaviour {
                     case TouchPhase.Began:
                         /* this is a new touch */
                         fingerStartPos = touch.position;
+                        // Debug.Log(fingerStartPos);
                         break;
 
                     case TouchPhase.Ended:
                         float gestureDist = (touch.position - fingerStartPos).magnitude;
-                        //Debug.Log("====Avant entrée dans gesture");
-                        if (gestureDist > minSwipeDist)
+                        // Debug.Log("====Avant entrée dans gesture");
+                        if (gestureDist > minSwipeDist && touch.position.y < maximumHeightForPlayerRunner)
                         {
                            // Debug.Log("========Entrée dans gesture");
                             Vector2 direction = touch.position - fingerStartPos;
