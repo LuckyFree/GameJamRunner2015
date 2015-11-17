@@ -6,22 +6,39 @@ public class Controller : MonoBehaviour {
     private Vector2 fingerStartPos = Vector2.zero;
     private float minSwipeDist;
     private bool moving;
-    private float timeToMove;
+    private GameObject player;
+    private CharacterManager characterManager;
+
+    public bool invertedControls;
+
+    private float timerTest = 2;
 
 	// Use this for initialization
 	void Start () {
+        // Screen.SetResolution(256, 240, false); // trying to set the right resolution from NES
         minSwipeDist = 50.0f;
         moving = false;
-        timeToMove = 0;
+        player = GameObject.Find("Player");
+        characterManager = player.GetComponent<CharacterManager>();
+        invertedControls = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+        timerTest -= Time.deltaTime; ;
+        if (timerTest <= 0)
+        {
+            Debug.Log("MOVE UP");
+            moving = true;
+            characterManager.MoveDown();
+            timerTest = 30000;
+        }
+
+
         if (moving)
         {
-            timeToMove -= Time.deltaTime;
-            if (timeToMove <= 0)
+            if (!characterManager.moving)
                 moving = false;
         }
 
@@ -41,7 +58,6 @@ public class Controller : MonoBehaviour {
     /// </summary>
     private void Move()
     {
-        Debug.Log("Move");
         if (Input.touchCount > 0)
         {
             foreach (Touch touch in Input.touches)
@@ -55,10 +71,10 @@ public class Controller : MonoBehaviour {
 
                     case TouchPhase.Ended:
                         float gestureDist = (touch.position - fingerStartPos).magnitude;
-                        Debug.Log("====Avant entrée dans gesture");
-                        if (gestureDist < minSwipeDist)
+                        //Debug.Log("====Avant entrée dans gesture");
+                        if (gestureDist > minSwipeDist)
                         {
-                            Debug.Log("========Entrée dans gesture");
+                           // Debug.Log("========Entrée dans gesture");
                             Vector2 direction = touch.position - fingerStartPos;
                             Vector2 swipeType = Vector2.zero;
 
@@ -71,17 +87,33 @@ public class Controller : MonoBehaviour {
                                 {
                                     if (swipeType.y > 0.0f)
                                     {
-                                        // MOVE UP TODO call manager's method moveUp
-                                        // TODO  timeToMove = X
-                                        //TODO moving = true
-                                        Debug.Log("MOVE UP");
+                                        if (!invertedControls)
+                                        {
+                                            Debug.Log("MOVE UP");
+                                            moving = true;
+                                            characterManager.MoveUp();
+                                        }
+                                        else 
+                                        {
+                                            Debug.Log("MOVE DOWN (INVERTED)");
+                                            moving = true;
+                                            characterManager.MoveDown();
+                                        }
                                     }
                                     else
                                     {
-                                        // MOVE DOWN TODO call manager's method movedown
-                                        // TODO  timeToMove = X
-                                        //TODO moving = true
-                                        Debug.Log("MOVE DOWN");
+                                        if (!invertedControls)
+                                        {
+                                            Debug.Log("MOVE DOWN");
+                                            moving = true;
+                                            characterManager.MoveDown();
+                                        }
+                                        else
+                                        {
+                                            Debug.Log("MOVE UP (INVERTED)");
+                                            moving = true;
+                                            characterManager.MoveUp();
+                                        }
                                     }
                                 }
                             }
