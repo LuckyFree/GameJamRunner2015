@@ -9,9 +9,26 @@ public class LevelManager : MonoBehaviour
 		// Renderer list
 		private List<Renderer> m_RendererList = new List<Renderer>();
 
+		// Instance
+		private static LevelManager s_Instance = null;
+
 	#endregion
 
 	#region MonoBehaviour
+
+		// Called at creation
+		void Awake()
+		{
+			if (s_Instance != null)
+			{
+				Debug.LogWarning("2 level manager in scene, last removed");
+				GameObject.Destroy(gameObject);
+			}
+			else
+			{
+				s_Instance = this;
+			}
+		}
 
 		// Use this for initialization
 		void Start()
@@ -41,6 +58,19 @@ public class LevelManager : MonoBehaviour
 
 	#endregion
 
+	#region Getters & Setters
+
+		/// <summary>
+		/// Get renderer list
+		/// </summary>
+		/// <returns></returns>
+		public List<Renderer> GetRendererList()
+		{
+			return m_RendererList;
+		}
+
+	#endregion
+
 	#region Private Manipulators
 
 		private void DestroyAlreadySeenObjects()
@@ -64,6 +94,19 @@ public class LevelManager : MonoBehaviour
 					}
 				}
 			}
+		}
+
+	#endregion
+
+	#region Static Manipulators
+
+		/// <summary>
+		/// Get instance
+		/// </summary>
+		/// <returns></returns>
+		public static LevelManager GetInstance()
+		{
+			return s_Instance;
 		}
 
 	#endregion
