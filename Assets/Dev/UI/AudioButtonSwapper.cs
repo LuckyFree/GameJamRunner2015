@@ -9,9 +9,26 @@ public class AudioButtonSwapper : MonoBehaviour
 		[SerializeField]
 		private float m_SwapTranslationDuration = 1;
 
+		// Instance
+		private static AudioButtonSwapper s_Instance = null;
+
 	#endregion
 
 	#region MonoBehaviour
+
+		// Awake
+		void Awake()
+		{
+			if (s_Instance != null)
+			{
+				Debug.LogWarning("2 audio button swapper in scene, last removed");
+				GameObject.Destroy(gameObject);
+			}
+			else
+			{
+				s_Instance = this;
+			}
+		}
 
 		// Use this for initialization
 		void Start()
@@ -90,6 +107,19 @@ public class AudioButtonSwapper : MonoBehaviour
 
 				yield return null;
 			}
+		}
+
+	#endregion
+
+	#region Static Manipulators
+
+		/// <summary>
+		/// Get instance
+		/// </summary>
+		/// <returns></returns>
+		public static AudioButtonSwapper GetInstance()
+		{
+			return s_Instance;
 		}
 
 	#endregion

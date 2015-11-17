@@ -18,7 +18,7 @@ public class Obstacle : MonoBehaviour
     #region MonoBehaviour
 
         // On collision enter
-        void OnCollisionEnter(Collision collision)
+        void OnCollisionEnter2D(Collision2D collision)
         {
             CharacterManager character = collision.gameObject.GetComponent<CharacterManager>();
 
