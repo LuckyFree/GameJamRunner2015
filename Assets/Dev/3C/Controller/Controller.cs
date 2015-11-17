@@ -9,32 +9,25 @@ public class Controller : MonoBehaviour {
     private GameObject player;
     private CharacterManager characterManager;
 
+    public float maximumHeightForPlayerRunner;
     public bool invertedControls;
-
-    private float timerTest = 2;
 
 	// Use this for initialization
 	void Start () {
         // Screen.SetResolution(256, 240, false); // trying to set the right resolution from NES
         minSwipeDist = 50.0f;
         moving = false;
-        player = GameObject.Find("Player");
+        player = GameObject.Find("PlayerMcFly");
+        if(player ==null)
+            player = GameObject.Find("PlayerDoloreane"); //TODO ADD OTHER PLAYERS
+        if (player == null)
+            Debug.Log("LE JOUEUR N'EST PAS TROUVE");
         characterManager = player.GetComponent<CharacterManager>();
         invertedControls = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-        timerTest -= Time.deltaTime; ;
-        if (timerTest <= 0)
-        {
-            Debug.Log("MOVE UP");
-            moving = true;
-            characterManager.MoveDown();
-            timerTest = 30000;
-        }
-
 
         if (moving)
         {
@@ -67,12 +60,13 @@ public class Controller : MonoBehaviour {
                     case TouchPhase.Began:
                         /* this is a new touch */
                         fingerStartPos = touch.position;
+                        // Debug.Log(fingerStartPos);
                         break;
 
                     case TouchPhase.Ended:
                         float gestureDist = (touch.position - fingerStartPos).magnitude;
-                        //Debug.Log("====Avant entrée dans gesture");
-                        if (gestureDist > minSwipeDist)
+                        // Debug.Log("====Avant entrée dans gesture");
+                        if (gestureDist > minSwipeDist && touch.position.y < maximumHeightForPlayerRunner)
                         {
                            // Debug.Log("========Entrée dans gesture");
                             Vector2 direction = touch.position - fingerStartPos;
@@ -89,7 +83,7 @@ public class Controller : MonoBehaviour {
                                     {
                                         if (!invertedControls)
                                         {
-                                            Debug.Log("MOVE UP");
+                                           // Debug.Log("MOVE UP");
                                             moving = true;
                                             characterManager.MoveUp();
                                         }
@@ -104,7 +98,7 @@ public class Controller : MonoBehaviour {
                                     {
                                         if (!invertedControls)
                                         {
-                                            Debug.Log("MOVE DOWN");
+                                          //  Debug.Log("MOVE DOWN");
                                             moving = true;
                                             characterManager.MoveDown();
                                         }

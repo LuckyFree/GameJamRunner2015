@@ -71,6 +71,9 @@ public class CharacterManager : MonoBehaviour
         direction = new Vector3(0, 1, 0);
         directionHorizontal = new Vector3(1, 0, 0);
         horizontalMovement = 0;
+        repere1 = GameObject.Find("LeftMark").transform;
+        repere2 = GameObject.Find("RightMark").transform;
+
     }
 
     // Update is called once per frame
