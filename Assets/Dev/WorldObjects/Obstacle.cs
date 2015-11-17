@@ -7,7 +7,7 @@ public class Obstacle : MonoBehaviour
 
         // Offset multiplier dec on collision
         [SerializeField]
-        private float m_OffsetMulitplierDecOnCollision = 0.25f;
+        private float m_TrainOffsetMultiplierIncOnCollision = 0.25f;
 
         // Destroy object on collision
         [SerializeField]
@@ -24,8 +24,13 @@ public class Obstacle : MonoBehaviour
 
             if (character != null)
             {
-                // Dec character offset multiplier
-                character.DecOffsetMultiplier(m_OffsetMulitplierDecOnCollision);
+                // Inc train offset multiplier
+				TrainController train = TrainController.GetInstance();
+
+				if (train != null)
+				{
+					train.IncOffsetMultiplier(m_TrainOffsetMultiplierIncOnCollision);
+				}
 
                 // Destroy
                 if (m_DestroyObjectOnCollision)

@@ -7,6 +7,7 @@ enum RunnerPosition
     TOP, MIDDLE, BOTTOM
 }
 
+
 public class CharacterManager : MonoBehaviour
 {
 

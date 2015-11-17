@@ -93,17 +93,17 @@ public class GameplayAudioManager : MonoBehaviour
         /// </summary>
         private void ApplySuccessImpact()
         {
-            Debug.LogError("BIG SUCCESS");
+            //Debug.LogError("BIG SUCCESS");
 
             // Reset nb success
             m_CurrentNbSuccess = 0;
 
             // Change speed multiplier
-            CharacterManager character = CharacterManager.GetCharacter();
+			TrainController train = TrainController.GetInstance();
 
-            if (character != null)
+            if (train != null)
             {
-                character.IncOffsetMultiplier(m_OffsetMultiplierIncOnSuccess);
+                train.IncOffsetMultiplier(m_OffsetMultiplierIncOnSuccess);
             }
         }
 
@@ -117,12 +117,12 @@ public class GameplayAudioManager : MonoBehaviour
             // Reset nb fail
             m_CurrentNbFail = 0;
 
-            // Change speed multiplier
-            CharacterManager character = CharacterManager.GetCharacter();
+			// Change speed multiplier
+			TrainController train = TrainController.GetInstance();
 
-            if (character != null)
+            if (train != null)
             {
-                character.DecOffsetMultiplier(m_OffsetMultiplierDecOnFail);
+                train.DecOffsetMultiplier(m_OffsetMultiplierDecOnFail);
             }
         }
 
