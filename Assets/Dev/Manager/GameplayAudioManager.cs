@@ -112,7 +112,7 @@ public class GameplayAudioManager : MonoBehaviour
         /// </summary>
         private void ApplyFailImpact()
         {
-            Debug.LogError("BIG FAIL");
+            //Debug.LogError("BIG FAIL");
 
             // Reset nb fail
             m_CurrentNbFail = 0;
@@ -134,10 +134,18 @@ public class GameplayAudioManager : MonoBehaviour
             if (m_AudioTimeManager != null)
             {
                 List<AudioButton> missedAudioButtonList;
+				bool demoOn;
 
-                while (m_AudioTimeManager.CheckMissingInput(m_Timer, out missedAudioButtonList))
+                while (m_AudioTimeManager.CheckMissingInput(m_Timer, out missedAudioButtonList, out demoOn))
                 {
-                    OnFail(missedAudioButtonList);
+					if (!demoOn)
+					{
+						OnFail(missedAudioButtonList);
+					}
+					else
+					{
+						break;
+					}
                 }
             }
         }
@@ -170,7 +178,7 @@ public class GameplayAudioManager : MonoBehaviour
         /// </summary>
         private void OnFail(List<AudioButton> audioButtonList)
         {
-            Debug.LogWarning("FAIL");
+            //Debug.LogWarning("FAIL");
 
             // Inc nb fail
             m_CurrentNbFail++;
@@ -235,15 +243,22 @@ public class GameplayAudioManager : MonoBehaviour
         {
             if (m_AudioTimeManager != null)
             {
-                if (m_AudioTimeManager.IsInputValid(audioButton, m_Timer))
+				bool demoOn;
+                if (m_AudioTimeManager.IsInputValid(audioButton, m_Timer, out demoOn))
                 {
-                    // Success
-                    OnSuccess();
+					if (!demoOn)
+					{
+						// Success
+						OnSuccess();
+					}
                 }
                 else
                 {
-                    // Fail
-                    OnFail(audioButton);
+					if (!demoOn)
+					{
+						// Fail
+						OnFail(audioButton);
+					}
                 }
             }
         }

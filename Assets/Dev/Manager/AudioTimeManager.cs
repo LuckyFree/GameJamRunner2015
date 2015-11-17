@@ -9,6 +9,7 @@ public class AudioInputSettings
     public float minTouchTime = 0;
     public float maxTouchTime = 0;
     private bool isCompleted = false;
+	public bool isDemoOn = false;
 
     public bool IsCompleted
     {
@@ -35,38 +36,61 @@ public class AudioTimeManager
         /// <param name="time">Timer</param>
         public void SetAudioButtonsVisibility(float time)
         {
-            for (int i = 0; i < 4; i++)
+			bool demoOn = false;
+
+			for (int i = 0; i < m_AudioInputSettings.Count; i++)
+			{
+				// Check time
+				if (time >= m_AudioInputSettings[i].minTouchTime && time <= m_AudioInputSettings[i].maxTouchTime)
+				{
+					demoOn = m_AudioInputSettings[i].isDemoOn;
+                }
+			}
+			
+			for (int i = 0; i < 4; i++)
             {
                 AudioButton audioButton = AudioButton.GetAudioButtonWithID((AudioButton.EButtonID)i);
-                audioButton.SetEnableMode(false);
+
+				if (demoOn)
+				{
+					audioButton.SetEnableMode(false);
+				}
+				else
+				{
+					audioButton.SetEnableMode(true);
+				}
             }
 
-            for (int i = 0; i < m_AudioInputSettings.Count; i++)
-            {
-                // Check not completed
-                if (!m_AudioInputSettings[i].IsCompleted)
-                {
-                    // Check time
-                    if (time >= m_AudioInputSettings[i].minTouchTime && time <= m_AudioInputSettings[i].maxTouchTime)
-                    {
-                        for (int j = 0; j < m_AudioInputSettings[i].buttonIDList.Count; j++)
-                        {
-                            AudioButton audioButton = AudioButton.GetAudioButtonWithID(m_AudioInputSettings[i].buttonIDList[j]);
-                            audioButton.SetEnableMode(true);
-                        }
-                    }
-                }
-            }
-    }
+			if (demoOn)
+			{
+				for (int i = 0; i < m_AudioInputSettings.Count; i++)
+				{
+					// Check not completed
+					if (!m_AudioInputSettings[i].IsCompleted)
+					{
+						// Check time
+						if (time >= m_AudioInputSettings[i].minTouchTime && time <= m_AudioInputSettings[i].maxTouchTime)
+						{
+							for (int j = 0; j < m_AudioInputSettings[i].buttonIDList.Count; j++)
+							{
+								AudioButton audioButton = AudioButton.GetAudioButtonWithID(m_AudioInputSettings[i].buttonIDList[j]);
+								audioButton.SetEnableMode(true);
+							}
+						}
+					}
+				}
+			}
+		}
 
         /// <summary>
         /// Check missing input
         /// </summary>
         /// <param name="time">Timer</param>
         /// <returns></returns>
-        public bool CheckMissingInput(float time, out List<AudioButton> audioButtonListMissed)
+        public bool CheckMissingInput(float time, out List<AudioButton> audioButtonListMissed, out bool demoOn)
         {
-            audioButtonListMissed = new List<AudioButton>();
+			demoOn = false;
+			audioButtonListMissed = new List<AudioButton>();
 
             for (int i = 0; i < m_AudioInputSettings.Count; i++)
             {
@@ -76,15 +100,20 @@ public class AudioTimeManager
                     // Check max time elapsed
                     if (time > m_AudioInputSettings[i].maxTouchTime)
                     {
-                        m_AudioInputSettings[i].IsCompleted = true;
+						// Check demo off
+						demoOn = m_AudioInputSettings[i].isDemoOn;
+						if (!demoOn)
+						{
+							m_AudioInputSettings[i].IsCompleted = true;
 
-                        for (int j = 0; j < m_AudioInputSettings[i].buttonIDList.Count; j++)
-                        {
-                            AudioButton audioButton = AudioButton.GetAudioButtonWithID(m_AudioInputSettings[i].buttonIDList[j]);
-                            audioButtonListMissed.Add(audioButton);
-                        }
+							for (int j = 0; j < m_AudioInputSettings[i].buttonIDList.Count; j++)
+							{
+								AudioButton audioButton = AudioButton.GetAudioButtonWithID(m_AudioInputSettings[i].buttonIDList[j]);
+								audioButtonListMissed.Add(audioButton);
+							}
 
-                        return true;
+							return true;
+						}
                     }
                 }
             }
@@ -98,23 +127,30 @@ public class AudioTimeManager
         /// <param name="audioButton"></param>
         /// <param name="time"></param>
         /// <returns></returns>
-        public bool IsInputValid(AudioButton audioButton, float time)
+        public bool IsInputValid(AudioButton audioButton, float time, out bool demoOn)
         {
+			demoOn = false;
+
             for (int i = 0; i < m_AudioInputSettings.Count; i++)
             {
                 // Check not completed
                 if (!m_AudioInputSettings[i].IsCompleted)
                 {
-                    // Check button ID
-                    if (m_AudioInputSettings[i].buttonIDList.Contains(audioButton.GetAudioButtonID()))
-                    {
-                        // Check time
-                        if (time >= m_AudioInputSettings[i].minTouchTime && time <= m_AudioInputSettings[i].maxTouchTime)
-                        {
-                            m_AudioInputSettings[i].IsCompleted = true;
-                            return true;
-                        }
-                    }
+					// Check demo off
+					demoOn = m_AudioInputSettings[i].isDemoOn;
+					if (!demoOn)
+					{
+						// Check button ID
+						if (m_AudioInputSettings[i].buttonIDList.Contains(audioButton.GetAudioButtonID()))
+						{
+							// Check time
+							if (time >= m_AudioInputSettings[i].minTouchTime && time <= m_AudioInputSettings[i].maxTouchTime)
+							{
+								m_AudioInputSettings[i].IsCompleted = true;
+								return true;
+							}
+						}
+					}
                 }
             }
 

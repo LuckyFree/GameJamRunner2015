@@ -103,7 +103,7 @@ public class AudioButton : MonoBehaviour
         /// </summary>
         public void OnClick()
         {
-            Debug.Log(m_ButtonID + " clicked");
+            //Debug.Log(m_ButtonID + " clicked");
 
             if (GameplayAudioManager.GetInstance() != null)
             {

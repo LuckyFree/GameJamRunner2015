@@ -65,7 +65,7 @@ public class AudioTimeReader : MonoBehaviour
                 {
                     AudioInputSettings settings = new AudioInputSettings();
 
-                settings.buttonIDList = new List<AudioButton.EButtonID>();
+					settings.buttonIDList = new List<AudioButton.EButtonID>();
 
                     // Read button label
                     if (line.ToLower().Contains(m_ButtonALabel.ToLower()))
@@ -88,6 +88,9 @@ public class AudioTimeReader : MonoBehaviour
                         settings.buttonIDList.Add(AudioButton.EButtonID.ButtonD);
                     }
 
+					// Demo ON / OFF
+					settings.isDemoOn = (line.ToLower().Contains("demo on"));
+
                     // Read time
                     if ((line = sr.ReadLine()) != null)
                     {
@@ -102,7 +105,7 @@ public class AudioTimeReader : MonoBehaviour
                         }
                     }
 
-                    audioTimeManager.GetAudioInputSettings().Add(settings);
+					audioTimeManager.GetAudioInputSettings().Add(settings);
                 }
 
                 if (GameplayAudioManager.GetInstance() != null)
