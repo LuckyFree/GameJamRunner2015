@@ -12,6 +12,10 @@ public class CameraController : MonoBehaviour
 		// Instance
 		private static CameraController s_Instance = null;
 
+		// Camera acceleration
+		[SerializeField]
+		private float m_Acceleration = 1;
+
 	#endregion
 
 	void Awake()
@@ -86,6 +90,7 @@ public class CameraController : MonoBehaviour
 		/// </summary>
 		private void Move()
 		{
+			m_MovementSpeed += Time.deltaTime * m_Acceleration;
 			Vector3 direction = Vector3.right * m_MovementSpeed;
 			transform.position = Vector3.Lerp(transform.position, transform.position + direction, Time.deltaTime);
 		}
