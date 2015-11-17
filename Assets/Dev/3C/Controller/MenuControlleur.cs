@@ -5,7 +5,13 @@ public class MenuControlleur : MonoBehaviour {
 
 	public void StartGame()
 	{
+		Debug.Log("Test Menu");
 		Application.LoadLevel("ProtoA");
+	}
+
+	public void SelectDifficulty()
+	{
+		Application.LoadLevel("SelectDifficulty");
 	}
 
 	public void ExitGame()

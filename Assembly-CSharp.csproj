@@ -47,7 +47,10 @@
   <ItemGroup>
      <Compile Include="Assets\Audio\TempAudio.cs" />
      <Compile Include="Assets\Dev\3C\Controller\CameraController.cs" />
+     <Compile Include="Assets\Dev\3C\Controller\CameraForMenu.cs" />
      <Compile Include="Assets\Dev\3C\Controller\Controller.cs" />
+     <Compile Include="Assets\Dev\3C\Controller\MenuControlleur.cs" />
+     <Compile Include="Assets\Dev\3C\Controller\SelectController.cs" />
      <Compile Include="Assets\Dev\Behaviours\MovementPattern.cs" />
      <Compile Include="Assets\Dev\Debug\DebugInput.cs" />
      <Compile Include="Assets\Dev\Debug\GizmoDrawer.cs" />
@@ -67,23 +70,16 @@
      <Compile Include="Assets\Dev\UI\TempUI.cs" />
      <Compile Include="Assets\Dev\WorldObjects\Obstacle.cs" />
      <Compile Include="Assets\Graph\Temp Graph.cs" />
-     <Compile Include="Assets\MenuControlleur.cs" />
      <Compile Include="Assets\Reporter\MultiKeyDictionary.cs" />
      <Compile Include="Assets\Reporter\Reporter.cs" />
      <Compile Include="Assets\Reporter\ReporterGUI.cs" />
      <Compile Include="Assets\Reporter\ReporterMessageReceiver.cs" />
      <None Include="Assets\StreamingAssets\build_info.txt" />
- <Reference Include="UnityEngine.Analytics">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
