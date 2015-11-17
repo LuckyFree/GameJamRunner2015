@@ -17,12 +17,12 @@ public class AudioInputSettings
     }
 }
 
-public class AudioTimeManager : MonoBehaviour
+public class AudioTimeManager
 {
     #region Attributes
 
         // Audio input settings list
-        [SerializeField]
+        //[SerializeField]
         private List<AudioInputSettings> m_AudioInputSettings = new List<AudioInputSettings>();
 
     #endregion
@@ -30,9 +30,39 @@ public class AudioTimeManager : MonoBehaviour
     #region Public Manipulators
 
         /// <summary>
+        /// Set audio buttons visibility. Active color if in time
+        /// </summary>
+        /// <param name="time">Timer</param>
+        public void SetAudioButtonsVisibility(float time)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                AudioButton audioButton = AudioButton.GetAudioButtonWithID((AudioButton.EButtonID)i);
+                audioButton.SetEnableMode(false);
+            }
+
+            for (int i = 0; i < m_AudioInputSettings.Count; i++)
+            {
+                // Check not completed
+                if (!m_AudioInputSettings[i].IsCompleted)
+                {
+                    // Check time
+                    if (time >= m_AudioInputSettings[i].minTouchTime && time <= m_AudioInputSettings[i].maxTouchTime)
+                    {
+                        for (int j = 0; j < m_AudioInputSettings[i].buttonIDList.Count; j++)
+                        {
+                            AudioButton audioButton = AudioButton.GetAudioButtonWithID(m_AudioInputSettings[i].buttonIDList[j]);
+                            audioButton.SetEnableMode(true);
+                        }
+                    }
+                }
+            }
+    }
+
+        /// <summary>
         /// Check missing input
         /// </summary>
-        /// <param name="time"></param>
+        /// <param name="time">Timer</param>
         /// <returns></returns>
         public bool CheckMissingInput(float time, out List<AudioButton> audioButtonListMissed)
         {
@@ -89,6 +119,16 @@ public class AudioTimeManager : MonoBehaviour
             }
 
             return false;
+        }
+
+    #endregion
+
+    #region Getters & Setters
+
+        // Get audio input settings
+        public List<AudioInputSettings> GetAudioInputSettings()
+        {
+            return m_AudioInputSettings;
         }
 
     #endregion

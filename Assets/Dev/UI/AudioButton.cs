@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(FlashSprite))]
 public class AudioButton : MonoBehaviour
@@ -30,6 +31,13 @@ public class AudioButton : MonoBehaviour
         // Audio button list
         private static List<AudioButton> s_AudioButtonList = new List<AudioButton>();
 
+        // Image
+        private Image m_Image = null;
+
+        // Disable color
+        [SerializeField]
+        private Color m_DisableColor;
+
     #endregion
 
     #region MonoBehaviour
@@ -45,6 +53,9 @@ public class AudioButton : MonoBehaviour
         {
             // Get flash sprite component
             m_FlashSprite = GetComponent<FlashSprite>();
+
+            // Get image component
+            m_Image = GetComponent<Image>();
         }
 
         // Update is called once per frame
@@ -56,6 +67,25 @@ public class AudioButton : MonoBehaviour
     #endregion
 
     #region Public Manipulators
+
+        /// <summary>
+        /// Set enable mode. Based on color tint
+        /// </summary>
+        /// <param name="mode"></param>
+        public void SetEnableMode(bool mode)
+        {
+            if (m_Image != null)
+            {
+                if (mode)
+                {
+                    m_Image.color = Color.white;
+                }
+                else
+                {
+                    m_Image.color = m_DisableColor;
+                }
+            }   
+        }
 
         /// <summary>
         /// Fail effect on flash sprite

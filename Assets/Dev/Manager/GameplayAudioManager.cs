@@ -40,6 +40,10 @@ public class GameplayAudioManager : MonoBehaviour
         private int m_CurrentNbFail = 0;
         private int m_CurrentNbSuccess = 0;
 
+        // Success base score
+        [SerializeField]
+        private int m_SuccessBaseScore = 1;
+
     #endregion
 
     #region MonoBehaviour
@@ -67,6 +71,12 @@ public class GameplayAudioManager : MonoBehaviour
         // Update is called once per frame
         void Update()
         {
+            // Audio buttons visibility
+            if (m_AudioTimeManager != null)
+            {
+                m_AudioTimeManager.SetAudioButtonsVisibility(m_Timer);
+            }
+
             // Check missing inputs
             CheckMissingInputs();
 
@@ -199,6 +209,10 @@ public class GameplayAudioManager : MonoBehaviour
 
             // Reset nb fail
             m_CurrentNbFail = 0;
+
+            // Score
+            ScoreManager scoreManager = ScoreManager.GetInstance();
+            scoreManager.AddTopPlayerScore(m_SuccessBaseScore);
         }
 
         /// <summary>
@@ -236,13 +250,23 @@ public class GameplayAudioManager : MonoBehaviour
 
     #endregion
 
+    #region Getters & Setters
+
+        // Set audio time manager
+        public void SetAudioTimeManager(AudioTimeManager audioTimeManager)
+        {
+            m_AudioTimeManager = audioTimeManager;
+        }
+
+    #endregion
+
     #region Static Manipulators
 
-        /// <summary>
-        /// Get instance
-        /// </summary>
-        /// <returns>GameplayAudioManager instance</returns>
-        public static GameplayAudioManager GetInstance()
+    /// <summary>
+    /// Get instance
+    /// </summary>
+    /// <returns>GameplayAudioManager instance</returns>
+    public static GameplayAudioManager GetInstance()
         {
             return s_Instance;
         }

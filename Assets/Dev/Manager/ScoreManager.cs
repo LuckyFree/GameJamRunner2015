@@ -19,9 +19,26 @@ public class ScoreManager : MonoBehaviour
         [SerializeField]
         private ScoreUI m_BottomPlayerScoreUI = null;
 
+        // Instance
+        private static ScoreManager s_Instance = null;
+
     #endregion
 
     #region MonoBehaviour
+
+        // Called at creation
+        void Awake()
+        {
+            if (s_Instance != null)
+            {
+                Debug.LogWarning("2 score manager in scene. Last removed");
+                GameObject.Destroy(gameObject);
+            }
+            else
+            {
+                s_Instance = this;
+            }
+        }
 
         // Update is called once per frame
         void Update()
@@ -58,6 +75,19 @@ public class ScoreManager : MonoBehaviour
         public void AddTopPlayerScore(int value)
         {
             m_TopPlayerScore += Mathf.Abs(value);
+        }
+
+    #endregion
+
+    #region Static Manipulators
+
+        /// <summary>
+        /// Get instance
+        /// </summary>
+        /// <returns></returns>
+        public static ScoreManager GetInstance()
+        {
+            return s_Instance;
         }
 
     #endregion

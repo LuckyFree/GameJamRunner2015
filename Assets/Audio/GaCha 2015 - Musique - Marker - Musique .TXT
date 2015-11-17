@@ -1,0 +1,663 @@
+Snare
+14.142
+Snare
+15.000
+Snare
+15.857
+Snare
+16.714
+Snare
+17.571
+Snare
+18.428
+Snare
+19.285
+Snare
+20.142
+Snare
+21.000
+Snare
+21.857
+Snare
+22.714
+Snare
+23.571
+Snare
+24.428
+Snare
+25.285
+Snare
+26.142
+Snare
+27.000
+Kick
+27.428
+Snare
+27.857
+Kick
+28.285
+Snare
+28.714
+Kick
+29.142
+Snare
+29.571
+Kick
+30.000
+Snare
+30.428
+Kick
+30.857
+Snare
+31.285
+Kick
+31.714
+Snare
+32.142
+Kick
+32.571
+Snare
+33.000
+Kick
+33.428
+Snare
+33.857
+Kick
+34.285
+Snare
+34.714
+Kick
+35.142
+Snare
+35.571
+Kick
+36.000
+Snare
+36.428
+Kick
+36.857
+Snare
+37.285
+Kick
+37.714
+Snare
+38.142
+Kick
+38.571
+Snare
+39.000
+Kick
+39.428
+Snare
+39.857
+Kick
+40.285
+Snare
+40.714
+Kick
+41.142
+HH
+41.357
+Snare
+41.571
+HH
+41.785
+Kick
+42.000
+HH
+42.214
+Snare
+42.428
+HH
+42.642
+Kick
+42.857
+HH
+43.071
+Snare
+43.285
+HH
+43.500
+Kick
+43.714
+HH
+43.928
+Snare
+44.142
+HH
+44.357
+Kick
+44.571
+HH
+44.785
+Snare
+44.999
+HH
+45.214
+Kick
+45.428
+HH
+45.642
+Snare
+45.857
+HH
+46.071
+Kick
+46.285
+HH
+46.499
+Snare
+46.714
+HH
+46.928
+Kick
+47.142
+HH
+47.357
+Snare
+47.571
+HH
+47.785
+Kick
+47.999
+HH
+48.214
+Snare
+48.428
+HH
+48.642
+Kick
+48.857
+HH
+49.071
+Snare
+49.285
+HH
+49.499
+Kick
+49.714
+HH
+49.928
+Snare
+50.142
+HH
+50.357
+Kick
+50.571
+HH
+50.785
+Snare
+50.999
+HH
+51.214
+Kick
+51.428
+HH
+51.642
+Snare
+51.857
+HH
+52.071
+Kick
+52.285
+HH
+52.499
+Snare
+52.714
+HH
+52.928
+Kick
+53.142
+HH
+53.357
+Snare
+53.571
+HH
+53.785
+Kick
+53.999
+HH
+54.214
+Snare
+54.428
+HH
+54.642
+Bell
+54.857
+Bell
+55.285
+Bell
+55.714
+Bell
+56.142
+Bell
+56.571
+Bell
+56.999
+Bell
+57.428
+Bell
+57.857
+Bell
+58.285
+Bell
+58.714
+Bell
+59.142
+Bell
+59.571
+Bell
+59.999
+Bell
+00.428
+Bell
+00.857
+Bell
+01.285
+Bell + Kick
+61.714
+Snare + Bell
+62.142
+Kick
+62.357
+Bell
+62.571
+Snare
+62.999
+Bell + Kick
+63.428
+Snare + Bell
+33.857
+Kick
+64.071
+Bell
+64.285
+Snare
+64.714
+Bell + Kick
+65.142
+Snare + Bell
+65.571
+Kick
+65.785
+Bell
+65.999
+Snare
+66.428
+Bell + Kick
+66.857
+Snare + Bell
+67.285
+Kick
+67.499
+Bell
+67.714
+Snare
+68.142
+Bell + Kick
+68.571
+Snare + Bell
+68.999
+Kick
+69.214
+Bell
+69.428
+Snare
+69.857
+Bell + Kick
+70.285
+Snare + Bell
+70.714
+Kick
+70.928
+Bell
+71.142
+Snare
+71.571
+Bell + Kick
+71.999
+Snare + Bell
+72.428
+Kick
+72.642
+Bell
+72.857
+Snare
+73.285
+Bell + Kick
+73.714
+Snare + Bell
+74.142
+Kick
+74.357
+Bell
+74.571
+Snare
+74.999
+Bell + Kick
+75.428
+HH
+75.642
+Snare + Bell
+75.857
+Kick + HH
+76.071
+Bell
+76.285
+HH
+76.499
+Snare
+76.714
+HH
+76.928
+Bell + Kick
+77.142
+HH
+77.357
+Snare + Bell
+77.571
+Kick + HH
+77.785
+Bell
+77.999
+HH
+78.214
+Snare
+78.428
+HH
+78.642
+Bell + Kick
+78.857
+HH
+79.071
+Snare + Bell
+79.285
+Kick + HH
+79.499
+Bell
+79.714
+HH
+79.928
+Snare
+80.142
+HH
+80.357
+Bell + Kick
+80.571
+HH
+80.785
+Snare + Bell
+80.999
+Kick + HH
+81.214
+Bell
+81.428
+HH
+81.642
+Snare
+81.857
+HH
+82.071
+Bell + Kick
+82.285
+HH
+82.499
+Snare + Bell
+82.714
+Kick + HH
+82.928
+Bell
+83.142
+HH
+83.357
+Snare
+83.571
+HH
+83.785
+Bell + Kick
+83.999
+HH
+84.214
+Snare + Bell
+84.428
+Kick + HH
+84.642
+Bell
+84.857
+HH
+85.071
+Snare
+85.285
+HH
+85.499
+Bell + Kick
+85.714
+HH
+85.928
+Snare + Bell
+86.142
+Kick + HH
+86.357
+Bell
+86.571
+HH
+86.785
+Snare
+86.999
+HH
+87.214
+Bell + Kick
+87.428
+HH
+87.642
+Snare + Bell
+87.857
+Kick + HH
+88.071
+Bell
+88.285
+HH
+88.499
+Snare
+88.714
+HH
+88.928
+Bell + Kick
+89.142
+HH
+89.357
+Snare + Bell
+89.571
+Kick + HH
+89.785
+Bell
+89.999
+HH
+90.214
+Snare
+90.428
+HH
+90.642
+Bell + Kick
+90.857
+HH
+91.071
+Snare + Bell
+91.285
+Kick + HH
+91.499
+Bell
+91.714
+HH
+91.928
+Snare
+92.142
+HH
+92.357
+Bell + Kick
+92.571
+HH
+92.785
+Snare + Bell
+92.999
+Kick + HH
+93.214
+Bell
+93.428
+HH
+93.642
+Snare
+93.857
+HH
+94.071
+Bell + Kick
+94.285
+HH
+94.499
+Snare + Bell
+94.714
+Kick + HH
+94.928
+Bell
+95.142
+HH
+95.357
+Snare
+95.571
+HH
+95.785
+Bell + Kick
+95.999
+HH
+96.214
+Snare + Bell
+96.428
+Kick + HH
+96.642
+Bell
+96.857
+HH
+97.071
+Snare
+97.285
+HH
+97.499
+Bell + Kick
+97.714
+HH
+97.928
+Snare + Bell
+98.142
+Kick + HH
+98.357
+Bell
+98.571
+HH
+98.785
+Snare
+98.999
+HH
+99.214
+Bell + Kick
+99.428
+HH
+99.642
+Snare + Bell
+99.857
+Kick + HH
+100.071
+Bell
+100.285
+HH
+100.499
+Snare
+100.714
+HH
+100.928
+Bell + Kick
+101.142
+HH
+101.357
+Snare + Bell
+101.571
+Kick + HH
+101.785
+Bell
+101.999
+HH
+102.214
+Snare
+102.428
+HH
+102.642
+Kick
+102.857
+Snare
+103.285
+Kick
+103.499
+Snare
+104.142
+Kick
+104.571
+Snare
+104.999
+Kick
+105.214
+Snare
+105.857
+Kick
+106.285
+Snare
+106.714
+Kick
+106.928
+Snare
+107.571
+Kick
+107.999
+Snare
+108.428
+Kick
+108.642
+Snare
+109.285
+Kick
+109.714
+Snare
+100.142
+Kick
+110.357
+Snare
+110.999
+Kick
+111.428
+Snare
+111.857
+Kick
+112.071
+Snare
+112.714
+Kick
+113.142
+Snare
+113.571
+Kick
+113.785
+Snare
+114.428
+Kick
+114.857
+Snare
+115.285
+Kick
+115.499
+Snare
+116.142
+ 
+Original file:	GaCha 2015 - Musique - Marker - Musique .mid
+Timecode format:	24 FPS
+ 
+Created using:	EdiMarker v1.3.2 (Mac)
+Text Encoding:	System Settings (Mac)
+More info:	http://www.soundsinsync.com/edimarker/
